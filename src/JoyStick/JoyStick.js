@@ -1,14 +1,11 @@
 import React, { Component } from 'react';
 
-import { Hammer } from 'react-hammerjs'
-
 class JoyStick extends Component {
-
-    // TODO
-
     render() {
-        <Hammer>
-            <Canvas></Canvas>
-        </Hammer>
+        return (
+            <div className="JoyStick"></div>
+        );
     }
 }
+
+export default JoyStick;
