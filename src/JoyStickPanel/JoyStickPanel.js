@@ -12,7 +12,9 @@ class JoyStickPanel extends Component {
         this.state = {
             centerX: 0,
             centerY: 0,
-            mouseDown: false
+            mouseDown: false,
+            mouseX: 0,
+            mouseY: 0
         };
     }
 
@@ -28,16 +30,18 @@ class JoyStickPanel extends Component {
         this.setState( {
             centerX: 0,
             centerY: 0,
-            mouseDown: false
+            mouseDown: false,
+            mouseX: 0,
+            mouseY: 0
         } );
     }
 
     mouseMove = (event) => {
         if (this.state.mouseDown) {
-            console.log("X: " + event.clientX);
-            console.log("Y: " + event.clientY);
-
-            // TODO
+            this.setState( {
+                mouseX: event.clientX,
+                mouseY: event.clientY
+            } );
         }
     }
 
@@ -49,8 +53,11 @@ class JoyStickPanel extends Component {
                         <JoyStick 
                             centerX={this.state.centerX}
                             centerY={this.state.centerY}
-
-                        />
+                            mouseX={this.state.mouseX}
+                            mouseY={this.state.mouseY}
+                        >
+                            <div className="JoyStick"></div>
+                        </JoyStick>
                     </div>
                 </Hammer>
             </div>
