@@ -38,7 +38,7 @@ class JoyStick extends Component {
         const deltaX = mouseX - centerX;
 
         // outter circle radius
-        const radius = 150;
+        const radius = 120;
 
         // SOHCAHTOA
         let adjacent = mouseX - centerX;
@@ -113,7 +113,7 @@ class JoyStick extends Component {
 
     componentDidUpdate() {
         this.drawJoyStick();
-        //this.outputData();
+        this.outputData();
     }
 
     render() {
