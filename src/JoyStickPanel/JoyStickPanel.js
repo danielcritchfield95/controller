@@ -55,9 +55,7 @@ class JoyStickPanel extends Component {
                             centerY={this.state.centerY}
                             mouseX={this.state.mouseX}
                             mouseY={this.state.mouseY}
-                        >
-                            <div className="JoyStick"></div>
-                        </JoyStick>
+                        />
                     </div>
                 </Hammer>
             </div>
