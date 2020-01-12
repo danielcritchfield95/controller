@@ -45,6 +45,13 @@ class JoyStickPanel extends Component {
         }
     }
 
+    componentDidMount() {
+        const panel = document.querySelector('.JoyStickPanel');
+
+        panel.style.backgroundColor = this.props.color;
+        panel.style.width = this.props.width;
+    }
+
     render() {
         return (
             <div className="JoyStickPanel">
@@ -55,7 +62,9 @@ class JoyStickPanel extends Component {
                             centerY={this.state.centerY}
                             mouseX={this.state.mouseX}
                             mouseY={this.state.mouseY}
-                        />
+                            baseColor={this.props.joystickBaseColor}
+                            movementColor={this.props.joystickMovementColor}
+                            handleJoyStickData={this.props.handleJoyStickData} />
                     </div>
                 </Hammer>
             </div>

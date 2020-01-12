@@ -17,7 +17,7 @@ class JoyStick extends Component {
                 left: x-50,
                 top: y-50,
                 borderRadius: '50px',
-                backgroundColor: 'yellow'
+                backgroundColor: this.props.baseColor
             };
         }
         const joyStick = document.querySelector(".Base");
@@ -71,7 +71,7 @@ class JoyStick extends Component {
                 left: clickX,
                 top: clickY,
                 borderRadius: '50px',
-                backgroundColor: 'red'
+                backgroundColor: this.props.movementColor
             };
         }
 
@@ -85,7 +85,7 @@ class JoyStick extends Component {
         this.drawMovement();
     }
 
-    outputData() {
+    captureData() {
         const mouseX = this.props.mouseX;
         const mouseY = this.props.mouseY;
         const centerX = this.props.centerX;
@@ -103,17 +103,18 @@ class JoyStick extends Component {
 
         const data = {
             x: adjacent,
-            y: opposite * (-1), // * -1 because of screen is 0
+            y: opposite * -1, // * -1 because of screen is 0
             throttle: hypotenuse,
             direction: angle
         };
 
-        console.log(data);
+        return data;
     }
 
     componentDidUpdate() {
         this.drawJoyStick();
-        this.outputData();
+        const data = this.captureData();
+        this.props.handleJoyStickData(data);
     }
 
     render() {
