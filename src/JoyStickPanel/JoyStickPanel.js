@@ -12,35 +12,64 @@ class JoyStickPanel extends Component {
         this.state = {
             centerX: 0,
             centerY: 0,
-            mouseDown: false,
+            active: false,
             mouseX: 0,
             mouseY: 0
         };
     }
 
-    press = (event) => {
+    handleMouseDown = (event) => {
         this.setState( {
-            centerX: event.center.x,
-            centerY: event.center.y,
-            mouseDown: true
+            centerX: event.clientX,
+            centerY: event.clientY,
+            active: true
         } );
     }
 
-    pressUp = () => {
+    handleMouseUp = (event) => {
         this.setState( {
             centerX: 0,
             centerY: 0,
-            mouseDown: false,
+            active: false,
             mouseX: 0,
             mouseY: 0
         } );
     }
 
-    mouseMove = (event) => {
-        if (this.state.mouseDown) {
+    handleMouseMove = (event) => {
+        if (this.state.active) {
             this.setState( {
                 mouseX: event.clientX,
                 mouseY: event.clientY
+            } );
+        }
+    }
+
+    handleTouchStart = (event) => {
+        const touch = event.targetTouches[0];
+        this.setState( {
+            centerX: touch.clientX,
+            centerY: touch.clientY,
+            active: true
+        } );
+    }
+
+    handleTouchEnd = () => {
+        this.setState( {
+            centerX: 0,
+            centerY: 0,
+            active: false,
+            mouseX: 0,
+            mouseY: 0
+        } );
+    }
+
+    handleTouchMove = (event) => {
+        const touch = event.targetTouches[0];
+        if (this.state.active) {
+            this.setState( {
+                mouseX: touch.clientX,
+                mouseY: touch.clientY
             } );
         }
     }
@@ -55,7 +84,7 @@ class JoyStickPanel extends Component {
     render() {
         return (
             <div className="JoyStickPanel">
-                <Hammer onPress={this.press} onPressUp={this.pressUp} onMouseMove={this.mouseMove}>
+                <Hammer onMouseDown={this.handleMouseDown} onMouseUp={this.handleMouseUp} onMouseMove={this.handleMouseMove} onTouchStart={this.handleTouchStart} onTouchEnd={this.handleTouchEnd} onTouchMove={this.handleTouchMove}>
                     <div className="container">
                         <JoyStick 
                             centerX={this.state.centerX}

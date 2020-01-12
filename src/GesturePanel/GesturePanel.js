@@ -18,7 +18,7 @@ class GesturePanel extends Component {
         }
     }
 
-    tap = (event) => {
+    handleTap = (event) => {
         this.setState({
             tapX: event.center.x,
             tapY: event.center.y,
@@ -26,7 +26,7 @@ class GesturePanel extends Component {
         });
     }
 
-    doubleTap = (event) => {
+    handleDoubleTap = (event) => {
         this.setState({
             doubleTapX: event.center.x,
             doubleTapY: event.center.y,
@@ -34,9 +34,17 @@ class GesturePanel extends Component {
         });
     }
 
-    rotate = (event) => {
+    handleRotate = (event) => {
         // TODO
         console.log(event);
+    }
+
+    handlePinchIn = (event) => {
+        console.log(event);
+    }
+
+    handleSwipe = (event) => {
+        document.body.style.backgroundColor = 'red';
     }
 
     componentDidMount() {
@@ -49,12 +57,12 @@ class GesturePanel extends Component {
     render() {
         return (
             <Hammer
-                onTap={this.tap}
-                onDoubleTap={this.doubleTap}
-            // onPinchIn={}
-            // onPinchOut={}
-            onRotate={this.rotate}
-            // onSwipe={} 
+                onTap={this.handleTap}
+                onDoubleTap={this.handleDoubleTap}
+                onPinchIn={this.handlePinchIn}
+                // onPinchOut={}
+                onRotate={this.handleRotate}
+                // onSwipe={} 
             >
                 <div className="GesturePanel"></div>
             </Hammer>

@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import JoyStickPanel from './JoyStickPanel/JoyStickPanel';
 import GesturePanel from './GesturePanel/GesturePanel';
 
@@ -16,18 +16,22 @@ const App = () => {
     console.log(gestureData);
   }
 
+  useEffect(() => {
+    document.body.style.overflow = "hidden";
+  });
+
   return (
     <div className="App">
       {/* Insert Component(s) desired for controller here */}
-      <JoyStickPanel 
-        color={'dodgerblue'} 
-        width={'50%'} 
-        joystickBaseColor={'green'} 
-        joystickMovementColor={'red'} 
+      <JoyStickPanel
+        color={'dodgerblue'}
+        width={'50%'}
+        joystickBaseColor={'green'}
+        joystickMovementColor={'red'}
         handleJoyStickData={handleJoyStickData} />
-      <GesturePanel 
-        color={'purple'} 
-        width={'50%'} 
+      <GesturePanel
+        color={'purple'}
+        width={'50%'}
         handleGestureData={handleGestureData} />
     </div>
   );
