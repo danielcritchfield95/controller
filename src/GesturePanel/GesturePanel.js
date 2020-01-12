@@ -5,46 +5,34 @@ import './GesturePanel.css';
 
 class GesturePanel extends Component {
 
-    constructor(props) {
-        super(props);
-
-        this.state = {
-            tapX: 0,
-            tapY: 0,
-            tapped: false,
-            doubleTapX: 0,
-            doubleTapY: 0,
-            doubleTapped: false
-        }
-    }
-
     handleTap = (event) => {
-        this.setState({
-            tapX: event.center.x,
-            tapY: event.center.y,
-            tapped: true
-        });
+        console.log("Tapped");
+        document.body.style.backgroundColor='aqua';
     }
 
     handleDoubleTap = (event) => {
-        this.setState({
-            doubleTapX: event.center.x,
-            doubleTapY: event.center.y,
-            doubleTapped: true
-        });
-    }
-
-    handleRotate = (event) => {
-        // TODO
-        console.log(event);
+        console.log("Double Tapped");
+        document.body.style.backgroundColor='orange';
     }
 
     handlePinchIn = (event) => {
-        console.log(event);
+        document.body.style.backgroundColor='yellow';
     }
 
-    handleSwipe = (event) => {
+    handleSwipeLeft = (event) => {
         document.body.style.backgroundColor = 'red';
+    }
+
+    handleSwipeRight = (event) => {
+        document.body.style.backgroundColor = 'blue';
+    }
+
+    handleSwipeUp = (event) => {
+        document.body.style.backgroundColor = 'green';
+    }
+
+    handleSwipeDown = (event) => {
+        document.body.style.backgroundColor = 'black';
     }
 
     componentDidMount() {
@@ -59,12 +47,18 @@ class GesturePanel extends Component {
             <Hammer
                 onTap={this.handleTap}
                 onDoubleTap={this.handleDoubleTap}
-                onPinchIn={this.handlePinchIn}
-                // onPinchOut={}
-                onRotate={this.handleRotate}
-                // onSwipe={} 
-            >
-                <div className="GesturePanel"></div>
+                onPinchStart={this.handlePinchIn}
+                onSwipeRight={this.handleSwipeRight}
+                onSwipeLeft={this.handleSwipeLeft} 
+                onSwipeUp={this.handleSwipeUp}
+                onSwipeDown={this.handleSwipeDown}
+                options={{
+                    recognizers: {
+                       pinch: { enable: true }
+                    }
+                 }}
+                 >
+                <canvas className="GesturePanel"></canvas>
             </Hammer>
         );
     }
