@@ -11,9 +11,32 @@ const App = () => {
     console.log(joyStickData);
   }
 
-  const handleGestureData = (gestureData) => {
-    // Insert code to handle gesture output data
-    console.log(gestureData);
+  const handleTap = (event) => {
+    document.body.style.backgroundColor = 'aqua';
+  }
+
+  const handleDoubleTap = (event) => {
+    document.body.style.backgroundColor = 'orange';
+  }
+
+  const handlePinch = (event) => {
+    document.body.style.backgroundColor = 'yellow';
+  }
+
+  const handleSwipeLeft = (event) => {
+    document.body.style.backgroundColor = 'red';
+  }
+
+  const handleSwipeRight = (event) => {
+    document.body.style.backgroundColor = 'blue';
+  }
+
+  const handleSwipeUp = (event) => {
+    document.body.style.backgroundColor = 'green';
+  }
+
+  const handleSwipeDown = (event) => {
+    document.body.style.backgroundColor = 'black';
   }
 
   useEffect(() => {
@@ -32,7 +55,13 @@ const App = () => {
       <GesturePanel
         color={'purple'}
         width={'50%'}
-        handleGestureData={handleGestureData} />
+        onTap={handleTap}
+        onDoubleTap={handleDoubleTap}
+        onSwipeLeft={handleSwipeLeft}
+        onSwipeRight={handleSwipeRight}
+        onSwipeUp={handleSwipeUp}
+        onSwipeDown={handleSwipeDown}
+        onPinch={handlePinch} />
     </div>
   );
 }

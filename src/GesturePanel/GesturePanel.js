@@ -5,36 +5,6 @@ import './GesturePanel.css';
 
 class GesturePanel extends Component {
 
-    handleTap = (event) => {
-        console.log("Tapped");
-        document.body.style.backgroundColor = 'aqua';
-    }
-
-    handleDoubleTap = (event) => {
-        console.log("Double Tapped");
-        document.body.style.backgroundColor = 'orange';
-    }
-
-    handlePinchIn = (event) => {
-        document.body.style.backgroundColor = 'yellow';
-    }
-
-    handleSwipeLeft = (event) => {
-        document.body.style.backgroundColor = 'red';
-    }
-
-    handleSwipeRight = (event) => {
-        document.body.style.backgroundColor = 'blue';
-    }
-
-    handleSwipeUp = (event) => {
-        document.body.style.backgroundColor = 'green';
-    }
-
-    handleSwipeDown = (event) => {
-        document.body.style.backgroundColor = 'black';
-    }
-
     componentDidMount() {
         const panel = document.querySelector('.GesturePanel');
 
@@ -54,31 +24,31 @@ class GesturePanel extends Component {
         });
 
         hammer.on("tap", event => {
-            this.handleTap(event);
+            this.props.onTap(event);
         });
 
         hammer.on("doubletap", event => {
-            this.handleDoubleTap(event);
+            this.props.onDoubleTap(event);
         });
 
         hammer.on("swipeleft", event => {
-            this.handleSwipeLeft(event);
+            this.props.onSwipeLeft(event);
         });
 
         hammer.on("swiperight", event => {
-            this.handleSwipeRight(event);
+            this.props.onSwipeRight(event);
         });
 
         hammer.on("swipeup", event => {
-            this.handleSwipeUp(event);
+            this.props.onSwipeUp(event);
         });
 
         hammer.on("swipedown", event => {
-            this.handleSwipeDown(event);
+            this.props.onSwipeDown(event);
         });
 
         hammer.on("pinchstart", event => {
-            this.handlePinchIn(event);
+            this.props.onPinch(event);
         });
     }
 
