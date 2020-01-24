@@ -32,9 +32,8 @@ const App = () => {
   }
 
   const handleSwipeRight = (event) => {
-    document.body.style.backgroundColor = 'blue';
     const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'aqua';
+    panel.style.backgroundColor = 'blue';
   }
 
   const handleSwipeUp = (event) => {

@@ -5,19 +5,23 @@ import './GesturePanel.css';
 
 class GesturePanel extends Component {
 
+    constructor(props) {
+        super();
+        this.myRef = React.createRef();
+        this.state = {
+            backgroundColor: props.color,
+            width: props.width
+        };
+    }
+
     componentDidMount() {
-        const panel = document.querySelector('.GesturePanel');
-
-        panel.style.backgroundColor = this.props.color;
-        panel.style.width = this.props.width;
-
-        let hammer = new Hammer(panel);
+        let hammer = new Hammer(this.myRef.current);
 
         // enable all directions
         hammer.get('swipe').set({
             direction: Hammer.DIRECTION_ALL,
         });
-        
+
         // enable pinch
         hammer.get('pinch').set({
             enable: true
@@ -50,11 +54,15 @@ class GesturePanel extends Component {
         hammer.on("pinchstart", event => {
             this.props.onPinch(event);
         });
+
+        const { color, width } = this.props;
+
+        this.setState({ backgroundColor: color, width: width });
     }
 
     render() {
         return (
-            <canvas className="GesturePanel"></canvas>
+            <canvas ref={this.myRef} className="GesturePanel" style={this.state}></canvas>
         );
     }
 }
