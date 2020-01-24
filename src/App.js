@@ -11,39 +11,32 @@ const App = () => {
     console.log(joyStickData);
   }
 
-  const handleTap = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'aqua';
+  const handleTap = (event, comp) => {
+    comp.setState({ backgroundColor: 'aqua' });
   }
 
-  const handleDoubleTap = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'orange';
+  const handleDoubleTap = (event, comp) => {
+    comp.setState({ backgroundColor: 'orange' });
   }
 
-  const handlePinch = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'yellow';
+  const handlePinch = (event, comp) => {
+    comp.setState({ backgroundColor: 'yellow' });
   }
 
-  const handleSwipeLeft = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'red';
+  const handleSwipeLeft = (event, comp) => {
+    comp.setState({ backgroundColor: 'red' });
   }
 
-  const handleSwipeRight = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'blue';
+  const handleSwipeRight = (event, comp) => {
+    comp.setState({ backgroundColor: 'blue' });
   }
 
-  const handleSwipeUp = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'green';
+  const handleSwipeUp = (event, comp) => {
+    comp.setState({ backgroundColor: 'green' });
   }
 
-  const handleSwipeDown = (event) => {
-    const panel = document.querySelector('.GesturePanel');
-    panel.style.backgroundColor = 'black';
+  const handleSwipeDown = (event, comp) => {
+    comp.setState({ backgroundColor: 'black' });
   }
 
   useEffect(() => {

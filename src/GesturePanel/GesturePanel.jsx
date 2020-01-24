@@ -27,32 +27,32 @@ class GesturePanel extends Component {
             enable: true
         });
 
-        hammer.on("tap", event => {
-            this.props.onTap(event);
+        hammer.on("tap", (event) => {
+            this.props.onTap(event, this);
         });
 
-        hammer.on("doubletap", event => {
-            this.props.onDoubleTap(event);
+        hammer.on("doubletap", (event) => {
+            this.props.onDoubleTap(event, this);
         });
 
-        hammer.on("swipeleft", event => {
-            this.props.onSwipeLeft(event);
+        hammer.on("swipeleft", (event) => {
+            this.props.onSwipeLeft(event, this);
         });
 
-        hammer.on("swiperight", event => {
-            this.props.onSwipeRight(event);
+        hammer.on("swiperight", (event) => {
+            this.props.onSwipeRight(event, this);
         });
 
-        hammer.on("swipeup", event => {
-            this.props.onSwipeUp(event);
+        hammer.on("swipeup", (event) => {
+            this.props.onSwipeUp(event, this);
         });
 
-        hammer.on("swipedown", event => {
-            this.props.onSwipeDown(event);
+        hammer.on("swipedown", (event) => {
+            this.props.onSwipeDown(event, this);
         });
 
-        hammer.on("pinchstart", event => {
-            this.props.onPinch(event);
+        hammer.on("pinchstart", (event) => {
+            this.props.onPinch(event, this);
         });
 
         const { color, width } = this.props;
