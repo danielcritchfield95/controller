@@ -12,31 +12,39 @@ const App = () => {
   }
 
   const handleTap = (event) => {
-    document.body.style.backgroundColor = 'aqua';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'aqua';
   }
 
   const handleDoubleTap = (event) => {
-    document.body.style.backgroundColor = 'orange';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'orange';
   }
 
   const handlePinch = (event) => {
-    document.body.style.backgroundColor = 'yellow';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'yellow';
   }
 
   const handleSwipeLeft = (event) => {
-    document.body.style.backgroundColor = 'red';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'red';
   }
 
   const handleSwipeRight = (event) => {
     document.body.style.backgroundColor = 'blue';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'aqua';
   }
 
   const handleSwipeUp = (event) => {
-    document.body.style.backgroundColor = 'green';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'green';
   }
 
   const handleSwipeDown = (event) => {
-    document.body.style.backgroundColor = 'black';
+    const panel = document.querySelector('.GesturePanel');
+    panel.style.backgroundColor = 'black';
   }
 
   useEffect(() => {
