@@ -9,8 +9,10 @@ class GesturePanel extends Component {
         super();
         this.myRef = React.createRef();
         this.state = {
-            backgroundColor: props.color,
-            width: props.width
+            style: {
+                backgroundColor: props.color,
+                width: props.width
+            }
         };
     }
 
@@ -54,15 +56,11 @@ class GesturePanel extends Component {
         hammer.on("pinchstart", (event) => {
             this.props.onPinch(event, this);
         });
-
-        const { color, width } = this.props;
-
-        this.setState({ backgroundColor: color, width: width });
     }
 
     render() {
         return (
-            <canvas ref={this.myRef} className="GesturePanel" style={this.state}></canvas>
+            <canvas ref={this.myRef} className="GesturePanel" style={this.state.style}></canvas>
         );
     }
 }

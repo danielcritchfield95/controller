@@ -12,31 +12,31 @@ const App = () => {
   }
 
   const handleTap = (event, comp) => {
-    comp.setState({ backgroundColor: 'aqua' });
+    comp.setState({ style:{backgroundColor: 'aqua', width: '50%'} });
   }
 
   const handleDoubleTap = (event, comp) => {
-    comp.setState({ backgroundColor: 'orange' });
+    comp.setState({ style:{backgroundColor: 'orange', width: '50%'} });
   }
 
   const handlePinch = (event, comp) => {
-    comp.setState({ backgroundColor: 'yellow' });
+    comp.setState({ style:{backgroundColor: 'yellow', width: '50%'} });
   }
 
   const handleSwipeLeft = (event, comp) => {
-    comp.setState({ backgroundColor: 'red' });
+    comp.setState({ style:{backgroundColor: 'red', width: '50%'} });
   }
 
   const handleSwipeRight = (event, comp) => {
-    comp.setState({ backgroundColor: 'blue' });
+    comp.setState({ style:{backgroundColor: 'blue', width: '50%'} });
   }
 
   const handleSwipeUp = (event, comp) => {
-    comp.setState({ backgroundColor: 'green' });
+    comp.setState({ style:{backgroundColor: 'green', width: '50%'} });
   }
 
   const handleSwipeDown = (event, comp) => {
-    comp.setState({ backgroundColor: 'black' });
+    comp.setState({ style:{backgroundColor: 'black', width: '50%'} });
   }
 
   useEffect(() => {
