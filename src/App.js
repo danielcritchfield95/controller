@@ -11,32 +11,32 @@ const App = () => {
     console.log(joyStickData);
   }
 
-  const handleTap = (event) => {
-    document.body.style.backgroundColor = 'aqua';
+  const handleTap = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'aqua', width: '50%'} });
   }
 
-  const handleDoubleTap = (event) => {
-    document.body.style.backgroundColor = 'orange';
+  const handleDoubleTap = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'orange', width: '50%'} });
   }
 
-  const handlePinch = (event) => {
-    document.body.style.backgroundColor = 'yellow';
+  const handlePinch = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'yellow', width: '50%'} });
   }
 
-  const handleSwipeLeft = (event) => {
-    document.body.style.backgroundColor = 'red';
+  const handleSwipeLeft = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'red', width: '50%'} });
   }
 
-  const handleSwipeRight = (event) => {
-    document.body.style.backgroundColor = 'blue';
+  const handleSwipeRight = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'blue', width: '50%'} });
   }
 
-  const handleSwipeUp = (event) => {
-    document.body.style.backgroundColor = 'green';
+  const handleSwipeUp = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'green', width: '50%'} });
   }
 
-  const handleSwipeDown = (event) => {
-    document.body.style.backgroundColor = 'black';
+  const handleSwipeDown = (event, comp) => {
+    comp.setState({ style:{backgroundColor: 'black', width: '50%'} });
   }
 
   useEffect(() => {
